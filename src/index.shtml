@@ -59,7 +59,158 @@
             <!--#include virtual="header.shtml"-->
             <!-- 头部end -->
 
-            <div>这是身体</div>
+            <!-- 主要内容 start -->
+            <div class="c_productop">
+
+                <!-- banner start -->
+                <div class="sd_module">
+                    <div class="bannerbox probannerCat">
+                        <div class="sd_item">
+                            <img src="./images/ia_100000017.jpg" alt="">
+                            <div class="textbox">
+                                <div class="a_table">
+                                    <div class="a_box">
+                                        <a href="javascript:;">人性的科技 家的温度</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- banner end -->
+
+                <!-- 商品列表导航 start -->
+                <div class="proListNavBox js_proListNavBox">
+                    <div class="proNavbox">
+                        <div class="proNav js_proNav">
+                            <div class="cui_mainbox">
+                                <!-- 产品类别 start -->
+                                <div class="proClass js_proClass">
+                                    <div class="name">
+                                        <img src="./images/jiadian.png" alt="">
+                                        <span>智慧家电</span>
+                                        <img src="./images/ia_200000000.png" alt="" class="shetou">
+                                    </div>
+                                    <div class="list displaynone">
+                                        <ul class="o_g">
+                                            <li class="o_u o_df_1-2">
+                                                <a href="javascript:;">
+                                                    <img src="./images/bingxiang.png" alt="">
+                                                    <span>冰箱</span>
+                                                </a>
+                                            </li>
+                                            <li class="o_u o_df_1-2">
+                                                <a href="javascript:;">
+                                                    <img src="./images/bingxiang.png" alt="">
+                                                    <span>冰箱</span>
+                                                </a>
+                                            </li>
+                                            <li class="o_u o_df_1-2">
+                                                <a href="javascript:;">
+                                                    <img src="./images/bingxiang.png" alt="">
+                                                    <span>冰箱</span>
+                                                </a>
+                                            </li>
+                                            <li class="o_u o_df_1-2">
+                                                <a href="javascript:;">
+                                                    <img src="./images/bingxiang.png" alt="">
+                                                    <span>冰箱</span>
+                                                </a>
+                                            </li>
+                                            <li class="o_u o_df_1-2">
+                                                <a href="javascript:;">
+                                                    <img src="./images/bingxiang.png" alt="">
+                                                    <span>冰箱</span>
+                                                </a>
+                                            </li>
+                                            <li class="o_u o_df_1-2">
+                                                <a href="javascript:;">
+                                                    <img src="./images/bingxiang.png" alt="">
+                                                    <span>冰箱</span>
+                                                </a>
+                                            </li>
+                                            <li class="o_u o_df_1-2">
+                                                <a href="javascript:;">
+                                                    <img src="./images/bingxiang.png" alt="">
+                                                    <span>冰箱</span>
+                                                </a>
+                                            </li>
+                                            <li class="o_u o_df_1-2">
+                                                <a href="javascript:;">
+                                                    <img src="./images/bingxiang.png" alt="">
+                                                    <span>冰箱</span>
+                                                </a>
+                                            </li>
+                                            <li class="o_u o_df_1-2">
+                                                <a href="javascript:;">
+                                                    <img src="./images/bingxiang.png" alt="">
+                                                    <span>冰箱</span>
+                                                </a>
+                                            </li>
+                                            <li class="o_u o_df_1-2">
+                                                <a href="javascript:;">
+                                                    <img src="./images/bingxiang.png" alt="">
+                                                    <span>冰箱</span>
+                                                </a>
+                                            </li>
+                                            <li class="o_u o_df_1-2">
+                                                <a href="javascript:;">
+                                                    <img src="./images/bingxiang.png" alt="">
+                                                    <span>冰箱</span>
+                                                </a>
+                                            </li>
+                                            <li class="o_u o_df_1-2">
+                                                <a href="javascript:;">
+                                                    <img src="./images/bingxiang.png" alt="">
+                                                    <span>冰箱</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- 产品类别 end -->
+                                <div class="proNameBox js_proNameBox">
+                                    <a href="javascript:;" class="porName">智慧家电</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filterBox js_filterBox sd_filter"></div>
+                </div>
+                <!-- 商品列表导航 end -->
+
+                <!-- 产品列表 start -->
+                <div class="o_g pro_listbox js_prolistboxs">
+                    <div class="zhezhao displaynone"></div>
+                    <div class="cui_mainbox">
+                        <div class="o_g screenBox">
+                            <a href="javascript:;" class="screenBox_btn js_screenBox_btn">
+                                上市时间
+                                <i class="iconfont displaynone">&#xe655;</i>
+                                <span>|</span>
+                            </a>
+                            <a href="javascript:;" class="screenBox_btn js_screenBox_btn">
+                                人气
+                                <i class="iconfont displaynone">&#xe655;</i>
+                                <span>|</span>
+                            </a>
+                            <a href="javascript:;" class="screenBox_btn js_screenBox_btn">
+                                价格
+                                <i class="iconfont displaynone">&#xe655;</i>
+                                <span>|</span>
+                            </a>
+                        </div>
+                        <div class="o_g proList js_proList">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- 产品列表 end -->
+
+
+            </div>
+            <!-- 主要内容 end -->
+
 
             <!-- 尾部start -->
             <!--#include virtual="footer.shtml"-->

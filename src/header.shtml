@@ -1,0 +1,169 @@
+<div class="zhezhao"></div>
+
+<div class="main_header">
+    <div class="header_cont relative">
+        <span class="o_menu_link o_fixW o_animate header_menu js_menu_link1">
+            <i class="iconfont open_menu">&#xe63a;</i>
+            <i class="iconfont displaynone close_menu">&#xe65c;</i>
+        </span>
+        <a href="javascript:;" class="logo">
+            <img src="./images/ia_100000000.png" alt="">
+        </a>
+        <div class="o_g">
+            <div class="o_u o_df_10-12 o_xs_1-12 o_clearbox">
+                <ul class="o_lg-left o_df-left o_xs-hide">
+                    <li class="item">
+                        <span class="toggle">
+                            <span>探索卡萨帝</span>
+                        <i class="iconfont">&#xe643;</i>
+                        </span>
+                    </li>
+                    <li class="item">
+                        <span class="toggle">
+                            <span>产品</span>
+                        <i class="iconfont">&#xe643;</i>
+                        </span>
+                    </li>
+                    <li class="item">
+                        <span class="toggle">
+                            <span>活动</span>
+                        <i class="iconfont">&#xe643;</i>
+                        </span>
+                    </li>
+                    <li class="item">
+                        <span class="toggle">
+                            <span>购买</span>
+                        <i class="iconfont">&#xe643;</i>
+                        </span>
+                    </li>
+                </ul>
+                <ul class="o_lg-right o_df-right o_xs-hide">
+                    <li class="item">
+                        <span class="toggle">
+                            <span>服务</span>
+                        <i class="iconfont"></i>
+                        </span>
+                    </li>
+                    <li class="item">
+                        <span class="toggle">
+                            <span>会员俱乐部</span>
+                        <i class="iconfont"></i>
+                        </span>
+                    </li>
+                </ul>
+                <div class="o_menu main_menu js_mainMenu o_sm-animate o_textlink_base">
+                    <ul class="js_menu1">
+                        <li class="aboutC item js_aboutC_menu">
+                            <div class="toggle o_xs-animate relative">
+                                <span>探索卡萨帝</span>
+                                <i class="iconfont">&#xe81a;</i>
+                            </div>
+                            <div class="cont o_xs-animate displaynone">
+                                <span>了解品牌</span>
+                                <span>设计理念</span>
+                                <span>发展历程</span>
+                                <span>新闻资讯</span>
+                            </div>
+                        </li>
+                        <li class="aboutC item js_aboutC_menu">
+                            <div class="toggle o_xs-animate relative">
+                                <span>产品</span>
+                                <i class="iconfont">&#xe81a;</i>
+                            </div>
+                            <div class="cont o_xs-animate displaynone">
+                                <span>智慧家电</span>
+                                <span>母婴家电</span>
+                                <span>冰箱</span>
+                                <span>电脑</span>
+                                <span>...</span>
+                            </div>
+                        </li>
+                        <li class="aboutC item js_aboutC_menu">
+                            <div class="toggle o_xs-animate relative">
+                                <span>活动</span>
+                                <i class="iconfont">&#xe81a;</i>
+                            </div>
+                            <div class="cont o_xs-animate displaynone">
+                                <span>智慧家电</span>
+                                <span>母婴家电</span>
+                                <span>冰箱</span>
+                                <span>电脑</span>
+                                <span>...</span>
+                            </div>
+                        </li>
+                        <li class="aboutC item js_aboutC_menu">
+                            <div class="toggle o_xs-animate relative">
+                                <span>购买</span>
+                                <i class="iconfont">&#xe81a;</i>
+                            </div>
+                            <div class="cont o_xs-animate displaynone">
+                                <span>智慧家电</span>
+                                <span>母婴家电</span>
+                                <span>冰箱</span>
+                                <span>电脑</span>
+                                <span>...</span>
+                            </div>
+                        </li>
+                        <li class="aboutC item js_aboutC_menu">
+                            <div class="toggle o_xs-animate relative">
+                                <span>会员俱乐部</span>
+                                <i class="iconfont">&#xe81a;</i>
+                            </div>
+                            <div class="cont o_xs-animate displaynone">
+                                <span>智慧家电</span>
+                                <span>母婴家电</span>
+                                <span>冰箱</span>
+                                <span>电脑</span>
+                                <span>...</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="o_u o_df_2-12 o_xs_11-12 o_df-textright header_infor">
+                <div class="main_select relative js_main_select">
+                    <div class="toggle relative">
+                        <i class="iconfont">&#xe636;</i>
+                        <span class="iconfont search_close">&#xe65c;</span>
+                    </div>
+                    <div class="contral">
+                        <i class="iconfont">&#xe636;</i>
+                        <form action="">
+                            <input type="text">
+                        </form>
+                    </div>
+                    <div class="list">
+                        <h2>快速链接</h2>
+                        <ul class="headerLink">
+                            <li>
+                                <a href="javascript:;">查找体验店</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">帮助中心</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">品牌活动</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">售后服务</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">联系我们</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="main_loginbox">
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe620;</i>
+                    </a>
+                    <span class="o_xs-hide o_xs-hide">
+                        <a href="javascript:;">登录</a>
+                        <a href="javascript:;">注册</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

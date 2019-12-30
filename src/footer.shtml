@@ -1,0 +1,92 @@
+<div class="main_footer">
+    <div class="cui_mainbox">
+        <div class="o_g">
+            <div class="o_u o_df_8-12 o_xs_2-2 o_lg_9-12 o_sm_2-2 o_xs-hide">
+                <ul class="menu o_g">
+                    <li class="o_u o_df_2-12 o_xs_2-2">
+                        <h1>探索卡萨帝</h1>
+                        <div class="linklist o_xs-animate">
+                            <span><a href="javascript:;">了解品牌</a></span>
+                            <span><a href="javascript:;">设计理念</a></span>
+                            <span><a href="javascript:;">发展历程</a></span>
+                            <span><a href="javascript:;">新闻资讯</a></span>
+                        </div>
+                    </li>
+                    <li class="o_u o_df_2-12 o_xs_2-2">
+                        <h1>产品</h1>
+                        <div class="linklist o_xs-animate">
+                            <span><a href="javascript:;">智慧家电</a></span>
+                            <span><a href="javascript:;">母婴家电</a></span>
+                            <span><a href="javascript:;">冰箱</a></span>
+                            <span><a href="javascript:;">洗衣机</a></span>
+                            <span><a href="javascript:;">空调</a></span>
+                            <span><a href="javascript:;">酒柜</a></span>
+                            <span><a href="javascript:;">冰吧</a></span>
+                        </div>
+                    </li>
+                    <li class="o_u o_df_2-12 o_xs_2-2">
+                        <h1>&nbsp;</h1>
+                        <div class="linklist o_xs-animate">
+                            <span><a href="javascript:;">厨房电器</a></span>
+                            <span><a href="javascript:;">热水器</a></span>
+                            <span><a href="javascript:;">家电</a></span>
+                            <span><a href="javascript:;">水吧</a></span>
+                            <span><a href="javascript:;">电视</a></span>
+                            <span><a href="javascript:;">冷柜</a></span>
+                        </div>
+                    </li>
+                    <li class="o_u o_df_2-12 o_xs_2-2">
+                        <h1>会员俱乐部</h1>
+                        <div class="linklist o_xs-animate">
+                            <span><a href="javascript:;">会员认证</a></span>
+                            <span><a href="javascript:;">权益商城</a></span>
+                            <span><a href="javascript:;">晒单代言</a></span>
+                            <span><a href="javascript:;">私享互动</a></span>
+                        </div>
+                    </li>
+                    <li class="o_u o_df_2-12 o_xs_2-2">
+                        <h1>服务</h1>
+                        <div class="linklist o_xs-animate">
+                            <span><a href="javascript:;">在线保修</a></span>
+                            <span><a href="javascript:;">预约安装</a></span>
+                            <span><a href="javascript:;">使用手册下载</a></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="o_u o_df_3-12 o_xs_2-2 o_lg_3-12 o_sm_2-2 foot_img_box">
+                <div class="activity o_center o_g">
+                    <div class="o_u o_df_2-2 o_sm_4-12">
+                        <a href="javascript:;">
+                            <img src="./images/ia_100000042.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="o_u o_df_2-2 o_sm_8-12">
+                        <div class="o_sm-table">
+                            <div class="o_sm-cell">
+                                <a href="javascript:;" class="tit">卡萨帝思享荟</a>
+                                <p>科技•精致•艺术</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="bottom">
+            <div class="aboutbox o_xs_2-2">
+                <a href="javascript:;" class="o_textlink_base ">联系我们</a>
+                <a href="javascript:;" class="o_textlink_base ">法律声明</a>
+                <a href="javascript:;" class="o_textlink_base ">帮助中心</a>
+                <a href="javascript:;" class="o_textlink_base ">服务条款</a>
+                <a href="javascript:;" class="o_textlink_base ">卡萨帝体验店</a>
+                <p class="copyright">Copyright © 2016 海尔集团版权所有 鲁ICP备09096283号</p>
+            </div>
+            <div class="follow o_xs_2-2">
+                <span>关注Casarte</span>
+                <a href="javascriptt:;"><i class="iconfont">&#xe63d;</i></a>
+                <a href="javascriptt:;"><i class="iconfont">&#xe686;</i></a>
+            </div>
+        </div>
+    </div>
+</div>

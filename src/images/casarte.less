@@ -1,10 +1,27 @@
-
-
 .relative {
     position: relative;
 }
 
 .clear {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.height {
+    height: 130px !important;
+}
+
+.clearfix:after {
     clear: both;
 }
 
@@ -26,6 +43,9 @@
 
 .colorwhite {
     color: #fff !important;
+}
+.color88747{
+    color: #a88747 !important;
 }
 
 .bca88747 {
@@ -70,14 +90,33 @@
     background: #fff;
     color: #a88747;
     z-index: 99;
-    .gototop_box {
+    .bottom_box {
         position: absolute;
         bottom: 0;
         left: 0;
         width: 36px;
         height: auto!important;
-        img {
-            width: 100%;
+        .gototop_box {
+            height: 36px;
+            display: block;
+            cursor: pointer;
+            background: url(./ia_100000115.png) 0 -280px no-repeat #a88747;
+        }
+        .slide_compare {
+            background: #a88747;
+            color: #fff;
+            padding: 25px 0;
+            text-align: center;
+            cursor: pointer;
+            p.number {
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+            p {
+                font-size: 12px;
+                line-height: 1.1em;
+                cursor: pointer;
+            }
         }
     }
     .userbar {
@@ -640,17 +679,17 @@
 
 //产品列表
 .pro_listbox {
-    background: #f8f8f8;
+    background: linear-gradient(#f8f8f8, rgb(255, 255, 255));
     position: relative;
     padding-top: 60px;
     min-height: 300px;
-    .zhezhao{
+    .zhezhao {
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: rgba(0,0,0,0.7);
+        background-color: rgba(0, 0, 0, 0.7);
         z-index: 9;
     }
     .cui_mainbox {
@@ -775,6 +814,7 @@
                         color: #000;
                         vertical-align: top;
                         font-size: 16px;
+                        transition: all 0.2s;
                     }
                     span {
                         font-size: 12px;
@@ -790,6 +830,143 @@
                         font-size: 0;
                     }
                 }
+            }
+        }
+    }
+}
+
+// 产品对比层
+.pro_compare_flyout {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    box-sizing: content-box;
+    background: #fff;
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    z-index: 11;
+    border-top: 2px solid #eee;
+    .title {
+        padding: 0px 40px 0 15px;
+        height: 40px;
+        overflow: hidden;
+        border-bottom: 1px solid #eee;
+        line-height: 40px;
+        h2 {
+            font-size: 12px;
+            color: #333;
+            float: left;
+            margin: 0px;
+            padding: 0px;
+            line-height: 40px;
+        }
+        span {
+            float: right;
+            cursor: pointer;
+            font-size: 12px;
+            color: #666666;
+            line-height: 40px;
+        }
+    }
+    .compare_list_box {
+        overflow: hidden;
+        padding: 0px 15px;
+        height: 90px;
+        .compare_col {
+            float: left;
+            width: calc(100% - (100px));
+            height: 90px;
+            overflow: hidden;
+            .compare_item {
+                float: left;
+                height: 90px;
+                overflow: hidden;
+                padding: 15px 0px 0px 15px;
+                border-right: 1px solid #e5e5e5;
+                width: 25%;
+                position: relative;
+                box-sizing: border-box;
+                .close_icon {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    cursor: pointer;
+                }
+                .pic {
+                    width: 60px;
+                    height: 60px;
+                    float: left;
+                    margin-right: 15px;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .name {
+                    color: #333;
+                    margin-bottom: 5px;
+                    float: left;
+                    margin-right: 15px;
+                    font-size: 12px;
+                    line-height: 1.3em;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    width: calc(100% - (30px + 60px));
+                    a {
+                        color: #a88747;
+                    }
+                }
+                .type {
+                    float: left;
+                    margin-right: 15px;
+                    font-size: 12px;
+                    color: #999;
+                    margin-bottom: 5px;
+                    line-height: 1.3em;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    width: calc(100% - (30px + 60px));
+                }
+                .money {
+                    float: left;
+                    margin-right: 15px;
+                    font-size: 12px;
+                    line-height: 1.3em;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    color: #a88747;
+                    width: calc(100% - (30px + 60px));
+                }
+            }
+        }
+        .compare_option {
+            float: right;
+            width: 70px;
+            padding: 15px 20px 0px 10px;
+            text-align: center;
+            .compare_link {
+                overflow: hidden;
+                color: #fff;
+                background: #a88747;
+                transition-duration: .4s;
+                transition-timing-function: ease-out;
+                border: 1px solid #a88747;
+                display: inline-block;
+                line-height: 30px;
+                width: 68px;
+                padding: 0px;
+                font-size: 12px;
+            }
+            .clear_compare {
+                font-size: 12px;
+                cursor: pointer;
+                line-height: 32px;
+                color: #666;
+                display: inline-block;
+                margin-top: 5px;
             }
         }
     }

@@ -3,23 +3,165 @@ $(document).ready(function() {
     //搜索栏
     // 点击其他地方隐藏搜索相关
     var width = innerWidth;
-    console.log(width);
+    // console.log(width);
     if (width > 1200) {
         //  casarte 对比部分功能 start
 
         // 分类具体和遮罩 start
-        $('.js_proListNavBox').on('mouseenter', '.name', function() {
+        $('.js_proListNavBox').on('mouseenter', '.js_proClass', function() {
             var $this = $(this);
-            $this.siblings('.list').removeClass('displaynone');
+            $this.find('.list').removeClass('displaynone');
             $this.parents('.js_proListNavBox').siblings('.js_prolistboxs').find('.zhezhao').removeClass('displaynone');
         });
 
-        $('.js_proListNavBox').on('mouseleave', '.list', function() {
+        $('.js_proListNavBox').on('mouseleave', '.js_proClass', function() {
             var $this = $(this);
-            $this.addClass('displaynone');
+            $this.find('.list').addClass('displaynone');
             $this.parents('.js_proListNavBox').siblings('.js_prolistboxs').find('.zhezhao').addClass('displaynone');
         });
         // 分类具体和遮罩 end
+
+        // 点击选中进行对比部分 start
+        // 声明变量记录比较列表的个数
+        var compare_item_num = 0;
+        // 找到侧边栏
+        var slide_compare = $('.js_slide_compare_box');
+
+        $('.js_prolistboxs').on('click', '.js_contrast', function() {
+            var $this = $(this);
+            var pro_id = $this.parents('.js_itemindex').data('pro_id');
+            var checked = $this.data('checked');
+            // index获取该元素在兄弟中的位置,有bug，只能删除相对位置对应的，无法发准确对应，只能用固定不变的才可以
+            // var index = $this.parents('.js_itemindex').index();
+            // 根据data缓存属性判断是否选中
+            if (checked == 'no') {
+                $this.data('checked', 'yes');
+                $this.find('.addicon').addClass('displaynone');
+                $this.find('.itemclose').removeClass('displaynone');
+                $this.find('span').addClass('color88747');
+                $this.find('span').text('取消对比');
+                compare_list(pro_id);
+                $this.parents('.js_prolistboxs').siblings('.js_flyout').removeClass('displaynone');
+                // 侧边栏数据改变
+                slide_compare.removeClass('displaynone');
+                // 获取子元素个数动态更改
+                compare_item_num = $(".js_compare_col").children(".compare_item").length;
+                slide_compare.find('.number span').text(compare_item_num + '/4');
+            } else if (checked == 'yes') {
+                $this.data('checked', 'no');
+                $this.find('.addicon').removeClass('displaynone');
+                $this.find('.itemclose').addClass('displaynone');
+                $this.find('span').removeClass('color88747');
+                $this.find('span').text('加入对比');
+                // 删除该元素，需要先找到这个元素
+                var arr_compare_item = $this.parents('.js_prolistboxs').siblings('.js_flyout').find('.compare_item');
+                arr_compare_item.each(function(index, item) {
+                    if (item.dataset.pro_id == pro_id) {
+                        item.remove();
+                    }
+                });
+                // 获取子元素个数动态更改
+                compare_item_num = $(".js_compare_col").children(".compare_item").length;
+                if (compare_item_num == 0) {
+                    // 侧边栏数据改变
+                    slide_compare.addClass('displaynone');
+                    $this.parents('.js_prolistboxs').siblings('.js_flyout').addClass('displaynone');
+                } else {
+                    // 侧边栏数据改变
+                    // 获取子元素个数动态更改
+                    slide_compare.find('.number span').text(compare_item_num + '/4');
+                }
+            }
+        });
+        // 点击选中进行对比部分 end
+
+        // 隐藏 展开 对比栏 start
+        // 声明变量判断是否显示对比列表
+        var flag_compare_list = true;
+        $('.js_flyout').on('click', '.title span', function() {
+            var $this = $(this);
+            if (flag_compare_list) {
+                $this.parents('.js_flyout').removeClass('height');
+                $this.parents('.title').siblings('.js_compare_list_box').addClass('displaynone');
+                $this.text('展开');
+                flag_compare_list = false;
+            } else {
+                $this.parents('.js_flyout').addClass('height');
+                $this.parents('.title').siblings('.js_compare_list_box').removeClass('displaynone');
+                $this.text('隐藏');
+                flag_compare_list = true;
+            }
+        });
+        // 隐藏 展开 对比栏 end
+
+        // 清空对比栏 start
+        $('.js_flyout').on('click', '.clear_compare', function() {
+            var $this = $(this);
+            $this.parents('.compare_option').siblings('.js_compare_col').empty();
+            $this.parents('.js_flyout').addClass('displaynone');
+            $this.parents('.js_flyout').siblings('.js_prolistboxs').find('.addicon').removeClass('displaynone');
+            $this.parents('.js_flyout').siblings('.js_prolistboxs').find('.itemclose').addClass('displaynone');
+            $this.parents('.js_flyout').siblings('.js_prolistboxs').find('.js_contrast').find('span').text('加入对比');
+            $this.parents('.js_flyout').siblings('.js_prolistboxs').find('.js_contrast').find('span').removeClass('color88747');
+            slide_compare.addClass('displaynone');
+            //还原最初的data属性状态，checked更改为false
+            $this.parents('.js_flyout').siblings('.js_prolistboxs').find('.js_itemindex').find('.js_contrast').data('checked', 'no');
+        });
+        // 清空对比栏 end
+
+        //compare_list_item 的点击删除 start
+        $('.js_flyout').on('click', '.js_close_icon', function() {
+            var $this = $(this);
+            // 声明一个变量获取该产品的pro_id
+            var compare_proid = $this.parents('.compare_item').data('pro_id');
+            $this.parents('.compare_item').remove();
+            compare_item_num = $(".js_compare_col").children(".compare_item").length;
+            if (compare_item_num == 0) {
+                slide_compare.addClass('displaynone');
+                $('.js_flyout').addClass('displaynone');
+                $('.js_flyout').siblings('.js_prolistboxs').find('.addicon').removeClass('displaynone');
+                $('.js_flyout').siblings('.js_prolistboxs').find('.itemclose').addClass('displaynone');
+                $('.js_flyout').siblings('.js_prolistboxs').find('.js_contrast').find('span').text('加入对比');
+                $('.js_flyout').siblings('.js_prolistboxs').find('.js_contrast').find('span').removeClass('color88747');
+            } else {
+                slide_compare.find('.number span').text(compare_item_num + '/4');
+            }
+            //回复产品列表中的内容 暂时这样 没什么大问题
+
+            //产品列表中的data 回复初始化
+
+        });
+        //compare_list_item 的点击删除 end
+
+        // 点击对比之后，动态生成html元素，直接使用暂存的即可 封装成函数 start
+        function compare_list(pro_id) {
+            var html2 = '';
+            $.each(products, function(index, item) {
+                if (pro_id == item.pro_id) {
+                    html2 += `<div class="compare_item clearfix" data-pro_id=${item.pro_id}>
+                    <i class="iconfont close_icon js_close_icon">&#xe65c;</i>
+                    <div class="pic">
+                        <a href="javascript:;">
+                            <img src="${item.pic}" alt="">
+                        </a>
+                    </div>
+                    <div class="name">
+                        <a href="javascript:;">
+                        ${item.name}
+                        </a>
+                    </div>
+                    <div class="type">${item.type}</div>
+                    <div class="money">￥${item.jiawei}</div>
+                </div>`
+                }
+            });
+            // html方法会把无弄没有，所以用append来添加，无是默认的
+            $('.js_compare_col').append(html2);
+        }
+        // 点击对比之后，动态生成html元素，直接使用暂存的即可 封装成函数 end
+
+        // 声明一个变量暂存点击对比时候的一些数据
+        var products;
 
         //    调取产品ajax封装成函数 start
         function pro_ajax() {
@@ -30,11 +172,14 @@ $(document).ready(function() {
                 type: "GET", //请求方式为get
                 dataType: "json", //返回数据格式为json
                 success: function(data) { //请求成功完成后要执行的方法 
-                    console.log(data.products);
+                    // console.log(data.products);
                     var html = '';
+                    // 暂存json中的内容，可以省不少事
+                    products = {...data.products };
+
                     $.each(data.products, function(index, item) {
                         // 注意！select值(value)就等于选中option的值，可以找到category_id直接赋值就行，不用转换了
-                        html += `<div class="o_u o_df_3-12 o_md_4-12 o_sm_1-2 o_xs_2-2">
+                        html += `<div class="o_u o_df_3-12 o_md_4-12 o_sm_1-2 o_xs_2-2 js_itemindex" data-pro_id=${item.pro_id}>
                         <div class="proListBox js_proListBox">
                             <a href="javasrcipt:;" class="js_link">
                                 <div class="${item.labelclass}">${item.label}</div>
@@ -53,8 +198,9 @@ $(document).ready(function() {
                                     <i class="iconfont">&#xe60c;</i>
                                     <span>收藏</span>
                                 </div>
-                                <div class="o_u o_df_1-2 o_xs-hide btn contrast js_contrast">
-                                    <i class="iconfont">&#xe81a;</i>
+                                <div class="o_u o_df_1-2 o_xs-hide btn contrast js_contrast" data-checked='no'>
+                                    <i class="iconfont addicon">&#xe81a;</i>
+                                    <i class="iconfont displaynone itemclose color88747">&#xe65c;</i>
                                     <span>加入对比</span>
                                 </div>
                                 <div class="clear"></div>

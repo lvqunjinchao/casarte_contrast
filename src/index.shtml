@@ -47,8 +47,14 @@
                 </ul>
             </div>
         </div>
-        <div class="gototop_box js_gototop_box">
-            <img src="./images/ia_100000181.png" alt="">
+        <div class="bottom_box">
+            <div class="slide_compare_box js_slide_compare_box displaynone">
+                <div class="slide_compare">
+                    <p class="number"><span></span></p>
+                    <p class="compare_text">比较<br>产品</p>
+                </div>
+            </div>
+            <div class="gototop_box js_gototop_box"></div>
         </div>
     </div>
     <!-- 手机端侧边栏 -->
@@ -206,6 +212,24 @@
                     </div>
                 </div>
                 <!-- 产品列表 end -->
+
+                <!-- 产品对比层 start -->
+                <div class="pro_compare_flyout js_flyout height displaynone">
+                    <div class="title clearfix">
+                        <h2>产品对比</h2>
+                        <span>隐藏</span>
+                    </div>
+                    <div class="compare_list_box js_compare_list_box clearfix">
+                        <div class="compare_col js_compare_col">
+
+                        </div>
+                        <div class="compare_option">
+                            <a href="javascript:;" class="compare_link">对比</a>
+                            <span class="clear_compare">清空对比栏</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 产品对比层 end -->
 
 
             </div>

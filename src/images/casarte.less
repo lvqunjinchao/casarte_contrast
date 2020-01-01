@@ -1,3 +1,4 @@
+// 公共属性 start
 .relative {
     position: relative;
 }
@@ -44,7 +45,8 @@
 .colorwhite {
     color: #fff !important;
 }
-.color88747{
+
+.color88747 {
     color: #a88747 !important;
 }
 
@@ -80,6 +82,8 @@
     transform: rotate(-45deg);
 }
 
+// 公共属性 end
+// 主页 start
 // 右侧边栏
 .cui_sidebar {
     position: fixed;
@@ -678,11 +682,7 @@
 }
 
 //产品列表
-.pro_listbox {
-    background: linear-gradient(#f8f8f8, rgb(255, 255, 255));
-    position: relative;
-    padding-top: 60px;
-    min-height: 300px;
+.zhezhaobox {
     .zhezhao {
         position: absolute;
         top: 0;
@@ -692,6 +692,13 @@
         background-color: rgba(0, 0, 0, 0.7);
         z-index: 9;
     }
+}
+
+.pro_listbox {
+    background: linear-gradient(#f8f8f8, rgb(255, 255, 255));
+    position: relative;
+    padding-top: 60px;
+    min-height: 300px;
     .cui_mainbox {
         padding: 0 15px;
         width: 1170px;
@@ -973,6 +980,103 @@
 }
 
 // 身体的样式 end
+// 主页 end
+.compareListbox {
+    margin-bottom: 30px;
+    height: 354px;
+    position: relative;
+    .compare {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        border-bottom: 1px solid #eeeeee;
+        margin-bottom: 30px;
+        z-index: 9;
+        background: #fff;
+        .cui_mainbox {
+            padding: 0 15px;
+            width: 1170px;
+            margin: 0 auto;
+            position: relative;
+            box-sizing: border-box;
+            .compareBox {
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                margin: 0px auto;
+                font-size: 12px;
+                .compareBoxL {
+                    width: 250px;
+                    display: inline-block;
+                    font-size: 12px;
+                    .text {
+                        margin-top: 30px;
+                        display: inline-block;
+                        .name {
+                            font-size: 12px;
+                            color: #999;
+                            line-height: 1.3em;
+                            margin-bottom: 5px;
+                            span {
+                                color: #a88747;
+                                margin: 0px 5px;
+                            }
+                        }
+                        .type {
+                            font-size: 12px;
+                            color: #999;
+                            line-height: 1.3em;
+                            margin-bottom: 20px;
+                            span {
+                                color: #a88747;
+                                margin: 0px 5px;
+                            }
+                        }
+                        .linkBtn {
+                            font-size: 12px;
+                            color: #6f3a8a;
+                            line-height: 1.3em;
+                            cursor: pointer;
+                            i {
+                                vertical-align: middle;
+                                margin-right: 6px;
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                    .choice {
+                        margin-bottom: 30px;
+                        font-size: 14px;
+                        color: #666;
+                        &>div {
+                            margin-top: 10px;
+                            .choice_item {
+                                background-position: 0 -120px;
+                                color: #666;
+                                padding-right: 10px;
+                                font-size: 14px;
+                                line-height: 24px;
+                                user-select: none;
+                                height: 24px;
+                                padding-left: 34px;
+                                background-image: url(./ia_100000118.png);
+                                background-repeat: no-repeat;
+                                cursor: pointer;
+                                display: inline-block;
+                                vertical-align: middle;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 分页 start
+// 分页 end
 @media screen and (max-width: 1199px) and (min-width: 992px) {
     .main_footer .cui_mainbox {
         width: 970px;

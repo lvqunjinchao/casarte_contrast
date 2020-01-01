@@ -118,6 +118,13 @@
       "unicode_decimal": 58919
     },
     {
+      "icon_id": "1133817",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
       "icon_id": "1183136",
       "name": "产品",
       "font_class": "chanpin",

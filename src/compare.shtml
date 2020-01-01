@@ -21,44 +21,6 @@
 </head>
 
 <body>
-    <!-- 右侧边栏 -->
-    <div class="cui_sidebar o_md-hide o_sm-hide  o_xs-hide o_animate">
-        <div class="userbar">
-            <div class="o_cell">
-                <div class="first"></div>
-                <ul class="btnlist js_btnlist">
-                    <li class="user js_user">
-                        <span class="iconfont">&#xe620;</span>
-                        <b>我的权益</b>
-                    </li>
-                    <li class="user js_user">
-                        <span class="iconfont">&#xe646;</span>
-                        <b>我的收藏</b>
-                    </li>
-                    <li class="twocode js_twocode">
-                        <span class="iconfont">&#xe63c;</span>
-                        <div class="cont">
-                            <img src="./images/ia_100000000222.png" alt="">
-                        </div>
-                    </li>
-                    <li class="user">
-                        <span class="iconfont">&#xe60f;</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="bottom_box">
-            <div class="slide_compare_box js_slide_compare_box displaynone">
-                <div class="slide_compare">
-                    <p class="number"><span></span></p>
-                    <p class="compare_text">比较<br>产品</p>
-                </div>
-            </div>
-            <div class="gototop_box js_gototop_box"></div>
-        </div>
-    </div>
-    <!-- 手机端侧边栏 -->
-
     <div class="o_body">
         <div class="o_main">
             <!-- 头部start -->
@@ -67,23 +29,6 @@
 
             <!-- 主要内容 start -->
             <div class="c_productop">
-
-                <!-- banner start -->
-                <div class="sd_module">
-                    <div class="bannerbox probannerCat">
-                        <div class="sd_item">
-                            <img src="./images/ia_100000017.jpg" alt="">
-                            <div class="textbox">
-                                <div class="a_table">
-                                    <div class="a_box">
-                                        <a href="javascript:;">人性的科技 家的温度</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- banner end -->
 
                 <!-- 商品列表导航 start -->
                 <div class="proListNavBox js_proListNavBox">
@@ -176,60 +121,45 @@
                                 </div>
                                 <!-- 产品类别 end -->
                                 <div class="proNameBox js_proNameBox">
-                                    <a href="javascript:;" class="porName">智慧家电</a>
+                                    <a href="javascript:;" class="porName">产品对比</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="filterBox js_filterBox sd_filter"></div>
                 </div>
                 <!-- 商品列表导航 end -->
 
-                <!-- 产品列表 start -->
-                <div class="o_g pro_listbox js_prolistboxs zhezhaobox">
+                <!-- 产品对比 start -->
+                <div class="compareListbox zhezhaobox">
                     <div class="zhezhao displaynone"></div>
-                    <div class="cui_mainbox">
-                        <div class="o_g screenBox">
-                            <a href="javascript:;" class="screenBox_btn js_screenBox_btn">
-                                上市时间
-                                <i class="iconfont displaynone">&#xe655;</i>
-                                <span>|</span>
-                            </a>
-                            <a href="javascript:;" class="screenBox_btn js_screenBox_btn">
-                                人气
-                                <i class="iconfont displaynone">&#xe655;</i>
-                                <span>|</span>
-                            </a>
-                            <a href="javascript:;" class="screenBox_btn js_screenBox_btn">
-                                价格
-                                <i class="iconfont displaynone">&#xe655;</i>
-                                <span>|</span>
-                            </a>
-                        </div>
-                        <div class="o_g proList js_proList">
-
-                        </div>
-                    </div>
-                </div>
-                <!-- 产品列表 end -->
-
-                <!-- 产品对比层 start -->
-                <div class="pro_compare_flyout js_flyout height displaynone">
-                    <div class="title clearfix">
-                        <h2>产品对比</h2>
-                        <span>隐藏</span>
-                    </div>
-                    <div class="compare_list_box js_compare_list_box clearfix">
-                        <div class="compare_col js_compare_col">
-
-                        </div>
-                        <div class="compare_option">
-                            <a href="./compare.shtml" class="compare_link">对比</a>
-                            <span class="clear_compare">清空对比栏</span>
+                    <div class="compare o_g js_compareList">
+                        <div class="cui_mainbox">
+                            <div class="compareBox">
+                                <div class="compareBoxL js_compareBoxL">
+                                    <div class="text">
+                                        <div class="name">
+                                            共
+                                            <span class="js_compare_pro_total">2</span> 个产品
+                                        </div>
+                                        <div class="type">
+                                            最多可添加
+                                            <span>4</span> 件产品
+                                        </div>
+                                        <div class="linkBtn">
+                                            <i class="iconfont">&#xe65a;</i> 清空所有产品
+                                        </div>
+                                    </div>
+                                    <div class="choice">
+                                        <div class="choice_item high_light">高亮显示不同项目</div>
+                                        <div class="choice_item hide_diff">隐藏不同项</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- 产品对比层 end -->
+                <!-- 产品对比 end -->
+
 
 
             </div>

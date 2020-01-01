@@ -11,13 +11,13 @@ $(document).ready(function() {
         $('.js_proListNavBox').on('mouseenter', '.js_proClass', function() {
             var $this = $(this);
             $this.find('.list').removeClass('displaynone');
-            $this.parents('.js_proListNavBox').siblings('.js_prolistboxs').find('.zhezhao').removeClass('displaynone');
+            $this.parents('.js_proListNavBox').siblings('.zhezhaobox').find('.zhezhao').removeClass('displaynone');
         });
 
         $('.js_proListNavBox').on('mouseleave', '.js_proClass', function() {
             var $this = $(this);
             $this.find('.list').addClass('displaynone');
-            $this.parents('.js_proListNavBox').siblings('.js_prolistboxs').find('.zhezhao').addClass('displaynone');
+            $this.parents('.js_proListNavBox').siblings('.zhezhaobox').find('.zhezhao').addClass('displaynone');
         });
         // 分类具体和遮罩 end
 
@@ -112,24 +112,33 @@ $(document).ready(function() {
         //compare_list_item 的点击删除 start
         $('.js_flyout').on('click', '.js_close_icon', function() {
             var $this = $(this);
+            var $js_flyou = $('.js_flyout');
             // 声明一个变量获取该产品的pro_id
             var compare_proid = $this.parents('.compare_item').data('pro_id');
+            //此处删除了之后，就找不到该元素了，所以$this就不好使了
             $this.parents('.compare_item').remove();
             compare_item_num = $(".js_compare_col").children(".compare_item").length;
             if (compare_item_num == 0) {
                 slide_compare.addClass('displaynone');
-                $('.js_flyout').addClass('displaynone');
-                $('.js_flyout').siblings('.js_prolistboxs').find('.addicon').removeClass('displaynone');
-                $('.js_flyout').siblings('.js_prolistboxs').find('.itemclose').addClass('displaynone');
-                $('.js_flyout').siblings('.js_prolistboxs').find('.js_contrast').find('span').text('加入对比');
-                $('.js_flyout').siblings('.js_prolistboxs').find('.js_contrast').find('span').removeClass('color88747');
+                $js_flyou.addClass('displaynone');
             } else {
                 slide_compare.find('.number span').text(compare_item_num + '/4');
+
             }
-            //回复产品列表中的内容 暂时这样 没什么大问题
-
-            //产品列表中的data 回复初始化
-
+            //产品列表中的选中状态 恢复初始化 不能笼统的全部，必须点击哪个就是哪个才可以，字体样式同理
+            var products_item = $js_flyou.siblings('.js_prolistboxs').find('.js_itemindex');
+            var xunhuannum = -1;
+            products_item.each(function(index, item) {
+                xunhuannum++;
+                if (item.dataset.pro_id == compare_proid) {
+                    var checked_products = $('.js_prolistboxs').find('.js_itemindex').eq(xunhuannum);
+                    checked_products.find('.addicon').removeClass('displaynone');
+                    checked_products.find('.itemclose').addClass('displaynone');
+                    checked_products.find('.js_contrast').find('span').text('加入对比');
+                    checked_products.find('.js_contrast').find('span').removeClass('color88747');
+                    checked_products.find('.js_contrast').data('checked', 'no');
+                }
+            });
         });
         //compare_list_item 的点击删除 end
 

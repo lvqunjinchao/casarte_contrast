@@ -129,12 +129,12 @@
                 </div>
                 <!-- 商品列表导航 end -->
 
-                <!-- 产品对比 start -->
+                <!-- 对比产品 start -->
                 <div class="compareListbox zhezhaobox">
                     <div class="zhezhao displaynone"></div>
                     <div class="compare o_g js_compareList">
                         <div class="cui_mainbox">
-                            <div class="compareBox">
+                            <div class="compareBox o_g">
                                 <div class="compareBoxL js_compareBoxL">
                                     <div class="text">
                                         <div class="name">
@@ -150,15 +150,79 @@
                                         </div>
                                     </div>
                                     <div class="choice">
-                                        <div class="choice_item high_light">高亮显示不同项目</div>
-                                        <div class="choice_item hide_diff">隐藏不同项</div>
+                                        <div>
+                                            <span class="choice_item high_light">高亮显示不同项目</span>
+                                        </div>
+                                        <div>
+                                            <span class="choice_item hide_diff">隐藏不同项</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="compareBoxR js_compareBoxR">
+                                    <div class="o_g">
+                                        <!-- <div class="row">
+                                            <div class="fenye_close">
+                                                <i class="iconfont">&#xe65c;</i>
+                                            </div>
+                                            <a href="javascript:;">
+                                                <div class="fenye_pic">
+                                                    <img src="./images/list_item.png" alt="">
+                                                </div>
+                                                <h1 class="fenye_name">
+                                                    <span>云珍</span>
+                                                </h1>
+                                                <div class="fenye_title">
+                                                    421升云珍多门冰箱
+                                                </div>
+                                            </a>
+                                            <div class="fenye_type">BCD-421WDCSU1</div>
+                                            <div class="fenye_money">14999</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="fenye_close">
+                                                <i class="iconfont">&#xe65c;</i>
+                                            </div>
+                                            <a href="javascript:;">
+                                                <div class="fenye_pic">
+                                                    <img src="./images/list_item.png" alt="">
+                                                </div>
+                                                <h1 class="fenye_name">
+                                                    <span>云珍</span>
+                                                </h1>
+                                                <div class="fenye_title">
+                                                    421升云珍多门冰箱
+                                                </div>
+                                            </a>
+                                            <div class="fenye_type">BCD-421WDCSU1</div>
+                                            <div class="fenye_money">14999</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="fenye_a_box">
+                                                <a href="javascript:;" class="fenye_add">
+                                                    <i class="iconfont">&#xe81a;</i> 添加新产品
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="fenye_a_box">
+                                                <a href="javascript:;" class="fenye_add">
+                                                    <i class="iconfont">&#xe81a;</i> 添加新产品
+                                                </a>
+                                            </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- 产品对比 end -->
+                <!-- 对比产品 end -->
+
+                <!-- 产品具体参数对比 start -->
+                <div class="parameterBox js_parameterBox">
+
+                </div>
+                <!-- 产品具体参数对比 end -->
 
 
 
@@ -175,8 +239,9 @@
     <!-- js资源end -->
     <!-- 本地页面独立js start -->
     <script type="text/javascript" src="./images/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./images/carhartl-jquery-cookie-92b7715/jquery.cookie.js"></script>
     <script type="text/javascript" src="./images/obox-min.js"></script>
-    <script type="text/javascript" src="./images/casarte.js"></script>
+    <script type="text/javascript" src="./images/fenye.js"></script>
 
     <!-- 本页面独立js end -->
 </body>

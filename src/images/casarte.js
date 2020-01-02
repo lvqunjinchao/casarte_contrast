@@ -5,7 +5,7 @@ $(document).ready(function() {
     var width = innerWidth;
     // console.log(width);
     if (width > 1200) {
-        //  casarte 对比部分功能 start
+        //  主页casarte 对比部分功能 start
 
         // 分类具体和遮罩 start
         $('.js_proListNavBox').on('mouseenter', '.js_proClass', function() {
@@ -21,7 +21,21 @@ $(document).ready(function() {
         });
         // 分类具体和遮罩 end
 
+        // 页面点击跳转判断，只有两个产品以上才可以对比，跳转对比页 start
+        $('.js_compare_link').on('click', function() {
+            var $this = $(this);
+            if (compare_item_num > 1) {
+                $this.attr('href', './compare_fenye.shtml');
+                $.cookie('compare_num', compare_item_num);
+                window.location = $(this).attr("href");
+            } else {
+                alert('至少有两个产品才可以进行对比');
+            }
+        });
+        // 页面点击跳转判断，只有两个产品以上才可以对比，跳转对比页 end
+
         // 点击选中进行对比部分 start
+
         // 声明变量记录比较列表的个数
         var compare_item_num = 0;
         // 找到侧边栏
@@ -185,7 +199,6 @@ $(document).ready(function() {
                     var html = '';
                     // 暂存json中的内容，可以省不少事
                     products = {...data.products };
-
                     $.each(data.products, function(index, item) {
                         // 注意！select值(value)就等于选中option的值，可以找到category_id直接赋值就行，不用转换了
                         html += `<div class="o_u o_df_3-12 o_md_4-12 o_sm_1-2 o_xs_2-2 js_itemindex" data-pro_id=${item.pro_id}>
@@ -225,7 +238,11 @@ $(document).ready(function() {
         pro_ajax();
         //    调取产品ajax封装成函数 end
 
-        //  casarte 对比部分功能 end
+        //  主页casarte 对比部分功能 end
+
+
+
+
 
 
 

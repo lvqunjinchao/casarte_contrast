@@ -224,7 +224,7 @@
 
                         </div>
                         <div class="compare_option">
-                            <a href="./compare.shtml" class="compare_link">对比</a>
+                            <a href="javascript:;" class="compare_link js_compare_link">对比</a>
                             <span class="clear_compare">清空对比栏</span>
                         </div>
                     </div>
@@ -245,6 +245,7 @@
     <!-- js资源end -->
     <!-- 本地页面独立js start -->
     <script type="text/javascript" src="./images/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./images/carhartl-jquery-cookie-92b7715/jquery.cookie.js"></script>
     <script type="text/javascript" src="./images/obox-min.js"></script>
     <script type="text/javascript" src="./images/casarte.js"></script>
 

@@ -8,6 +8,7 @@ $(document).ready(function() {
 
         // 分页 casarte 对比部分功能 start
 
+
         // 获取cookie，动态改变个数 start
         var compare_num = $.cookie('compare_num');
         $('.js_compare_pro_total').text(compare_num);
@@ -19,7 +20,7 @@ $(document).ready(function() {
             for (i = 0; i < 4 - compare_num; i++) {
                 kongyu += `<div class="row">
                 <div class="fenye_a_box">
-                    <a href="javascript:;" class="fenye_add">
+                    <a href="./index.shtml" class="fenye_add">
                         <i class="iconfont">&#xe81a;</i> 添加新产品
                     </a>
                 </div>
@@ -595,6 +596,58 @@ $(document).ready(function() {
 
         // products中含有数据，假装是ajax返回来的数据，将返回的数据放到页面上 end
 
+        // 清空所有产品 start
+        $('.compareListbox').on('click', '.js_linkBtn', function() {
+            var $this = $(this);
+            $this.parents('.js_compareBoxL').siblings('.js_compareBoxR').find('.o_g').empty();
+            compare_num = 0;
+            $('.js_compare_pro_total').text(compare_num);
+            kongyu();
+            $this.parents('.js_compareListbox').siblings('.js_parameterBox').empty();
+        });
+        // 清空所有产品 end
+
+        // 高亮显示不同 start
+        var yes_high_light = false;
+        $('.js_compareListbox').on('click', '.js_high_light_box', function() {
+            var $this = $(this);
+            var high_light_list = $('.canshu_item');
+            var arr = [];
+            if (!yes_high_light) {
+                yes_high_light = true;
+                $this.find('.js_high_light').addClass('xuanzhong');
+                $.each(high_light_list, function(index, item) {
+                    var $item = $(item);
+                    arr = [];
+                    $item.find('.canshu').each(function(index2, item2) {
+                        arr.push($(item2).text());
+                    });
+                    if (compare_num == 2) {
+                        if (arr[0] == arr[1]) {
+                            $item.addClass('bc_248');
+                            $item.find('.canshu').addClass('color_6500');
+                        }
+                    } else if (compare_num == 3) {
+                        if (arr[0] == arr[1] == arr[2]) {
+                            $item.addClass('bc_248');
+                            $item.find('.canshu').addClass('color_6500');
+                        }
+                    } else if (compare_num == 4) {
+                        if (arr[0] == arr[1] == arr[2] == arr[3]) {
+                            $item.addClass('bc_248');
+                            $item.find('.canshu').addClass('color_6500');
+                        }
+                    }
+                });
+            } else {
+                yes_high_light = false;
+                $this.find('.js_high_light').removeClass('xuanzhong');
+                high_light_list.removeClass('bc_248');
+                high_light_list.find('.canshu').removeClass('color_6500');
+            }
+
+        });
+        // 高亮显示不同 end
 
         // 分页 casarte 对比部分功能 end
 

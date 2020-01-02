@@ -130,7 +130,7 @@
                 <!-- 商品列表导航 end -->
 
                 <!-- 对比产品 start -->
-                <div class="compareListbox zhezhaobox">
+                <div class="compareListbox zhezhaobox js_compareListbox">
                     <div class="zhezhao displaynone"></div>
                     <div class="compare o_g js_compareList">
                         <div class="cui_mainbox">
@@ -145,13 +145,13 @@
                                             最多可添加
                                             <span>4</span> 件产品
                                         </div>
-                                        <div class="linkBtn">
+                                        <div class="linkBtn js_linkBtn">
                                             <i class="iconfont">&#xe65a;</i> 清空所有产品
                                         </div>
                                     </div>
                                     <div class="choice">
-                                        <div>
-                                            <span class="choice_item high_light">高亮显示不同项目</span>
+                                        <div class="js_high_light_box">
+                                            <span class="choice_item high_light js_high_light">高亮显示不同项目</span>
                                         </div>
                                         <div>
                                             <span class="choice_item hide_diff">隐藏不同项</span>

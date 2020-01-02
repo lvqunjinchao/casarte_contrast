@@ -61,6 +61,15 @@
 .rotate-45 {
   transform: rotate(-45deg);
 }
+.xuanzhong {
+  background-position: 0 -144px !important;
+}
+.bc_248 {
+  background-color: #f8f8f8 !important;
+}
+.color_6500 {
+  color: #de6500 !important;
+}
 .cui_sidebar {
   position: fixed;
   top: 0;

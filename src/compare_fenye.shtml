@@ -153,63 +153,14 @@
                                         <div class="js_high_light_box">
                                             <span class="choice_item high_light js_high_light">高亮显示不同项目</span>
                                         </div>
-                                        <div>
-                                            <span class="choice_item hide_diff">隐藏不同项</span>
+                                        <div class="js_hide_diff_box">
+                                            <span class="choice_item hide_diff js_hide_diff">隐藏相同项</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="compareBoxR js_compareBoxR">
                                     <div class="o_g">
-                                        <!-- <div class="row">
-                                            <div class="fenye_close">
-                                                <i class="iconfont">&#xe65c;</i>
-                                            </div>
-                                            <a href="javascript:;">
-                                                <div class="fenye_pic">
-                                                    <img src="./images/list_item.png" alt="">
-                                                </div>
-                                                <h1 class="fenye_name">
-                                                    <span>云珍</span>
-                                                </h1>
-                                                <div class="fenye_title">
-                                                    421升云珍多门冰箱
-                                                </div>
-                                            </a>
-                                            <div class="fenye_type">BCD-421WDCSU1</div>
-                                            <div class="fenye_money">14999</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="fenye_close">
-                                                <i class="iconfont">&#xe65c;</i>
-                                            </div>
-                                            <a href="javascript:;">
-                                                <div class="fenye_pic">
-                                                    <img src="./images/list_item.png" alt="">
-                                                </div>
-                                                <h1 class="fenye_name">
-                                                    <span>云珍</span>
-                                                </h1>
-                                                <div class="fenye_title">
-                                                    421升云珍多门冰箱
-                                                </div>
-                                            </a>
-                                            <div class="fenye_type">BCD-421WDCSU1</div>
-                                            <div class="fenye_money">14999</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="fenye_a_box">
-                                                <a href="javascript:;" class="fenye_add">
-                                                    <i class="iconfont">&#xe81a;</i> 添加新产品
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="fenye_a_box">
-                                                <a href="javascript:;" class="fenye_add">
-                                                    <i class="iconfont">&#xe81a;</i> 添加新产品
-                                                </a>
-                                            </div>
-                                        </div> -->
+
                                     </div>
                                 </div>
                             </div>

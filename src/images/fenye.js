@@ -15,9 +15,12 @@ $(document).ready(function() {
         // 获取cookie，动态改变个数 end
 
         // 对比项列表空余项 start
+        var yiyou_kongyu = 0;
+
         function kongyu() {
             var kongyu = '';
-            for (i = 0; i < 4 - compare_num; i++) {
+            var zancun_yiyou = yiyou_kongyu;
+            for (i = 0; i < 4 - compare_num - zancun_yiyou; i++) {
                 kongyu += `<div class="row">
                 <div class="fenye_a_box">
                     <a href="./index.shtml" class="fenye_add">
@@ -25,11 +28,56 @@ $(document).ready(function() {
                     </a>
                 </div>
             </div> `
+                yiyou_kongyu++;
             }
             // html方法会把无弄没有，所以用append来添加，无是默认的
             $('.js_compareBoxR .o_g').append(kongyu);
         }
         // 对比项列表空余项 end
+
+        // 点击对比项删除按钮 start
+        $('.js_compareListbox').on('click', '.fenye_close', function() {
+            var $this = $(this);
+            var this_index = $this.parents('.row').index();
+            var shanchu_canshu = $this.parents('.js_compareListbox').siblings('.js_parameterBox').find('.canshu_item');
+            $.each(shanchu_canshu, function(index, item) {
+                var $item = $(item);
+                $item.find('.canshu').eq(this_index).remove();
+                $item.find('.table_compareBoxR .o_g').append('<div class="canshu">&nbsp;</div>');
+            });
+            $this.parents('.row').remove();
+            compare_num--;
+            $('.js_compare_pro_total').text(compare_num);
+            kongyu();
+            if (compare_num == 1) {
+                var first_tabbox = `<div class="table_compareBox">
+                <div class="o_g">
+                    <span class="tit">全景体验</span>
+                </div>
+                <div class="o_g canshu_item">
+                    <div class="table_compareBoxL">
+                        <span>全景体验</span>
+                    </div>
+                    <div class="table_compareBoxR">
+                        <div class="o_g">
+                            <div class="canshu">&nbsp;</div>
+                            <div class="canshu">&nbsp;</div>
+                            <div class="canshu">&nbsp;</div>
+                            <div class="canshu">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+                $('.js_parameterBox').prepend(first_tabbox);
+            } else if (compare_num == 0) {
+                $('.js_parameterBox').empty();
+            }
+        });
+        // 点击对比项删除按钮 end
+
+
+
+
         var fenye_compare_pro;
 
         // 对比项列表信息 start
@@ -68,8 +116,8 @@ $(document).ready(function() {
                     // html方法会把无弄没有，所以用append来添加，无是默认的
                     $('.js_compareBoxR .o_g').append(fenye_compare_list);
                     kongyu();
-                    fenye_pro(fenye_compare_pro);
-
+                    fenye_pro();
+                    fenye_pro_data(fenye_compare_pro);
                 }
             })
 
@@ -85,514 +133,58 @@ $(document).ready(function() {
         var xingneng = ['性能', '压缩机类型', '制冷方式', '控制方式', '速冻功能', '开门报警', '童锁功能', '按键方式'];
         var tesegongneng = ['特色功能', '特色功能'];
         var jichushuxing = ['基础属性', '价位', '产品系列', '人口', '场景'];
+        // 这是总的数组
+        var all_list = [jibencanshu, jishushuju, peizhi, xingneng, tesegongneng, jichushuxing];
 
-
-
+        // 新方法，二次动态生成内容 第一次动态生成参数列表
         function fenye_pro(fenye_compare_pro) {
-            var fenye_pro = '';
-            fenye_pro = `<div class="table_compareBox">
-            <div class="o_g">
-                <span class="tit">${jibencanshu[0]}</span>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jibencanshu[1]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].class}</div>
-                        <div class="canshu">${fenye_compare_pro[1].class}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jibencanshu[2]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].xiangmenjitgou}</div>
-                        <div class="canshu">${fenye_compare_pro[1].xiangmenjitgou}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jibencanshu[3]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].jishenyanse}</div>
-                        <div class="canshu">${fenye_compare_pro[1].jishenyanse}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jibencanshu[4]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].mianbancaizhi}</div>
-                        <div class="canshu">${fenye_compare_pro[1].mianbancaizhi}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jibencanshu[5]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].nengxiaodengji}</div>
-                        <div class="canshu">${fenye_compare_pro[1].nengxiaodengji}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jibencanshu[6]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].chicun}</div>
-                        <div class="canshu">${fenye_compare_pro[1].chicun}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jibencanshu[7]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].zhongliang}</div>
-                        <div class="canshu">${fenye_compare_pro[1].zhongliang}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jibencanshu[8]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].kuandu}</div>
-                        <div class="canshu">${fenye_compare_pro[1].kuandu}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jibencanshu[9]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].zongrongji}</div>
-                        <div class="canshu">${fenye_compare_pro[1].zongrongji}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="table_compareBox">
-            <div class="o_g">
-                <span class="tit">${jishushuju[0]}</span>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jishushuju[1]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].lengcangrongji}</div>
-                        <div class="canshu">${fenye_compare_pro[1].lengcangrongji}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jishushuju[2]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].lengdongrongji}</div>
-                        <div class="canshu">${fenye_compare_pro[1].lengdongrongji}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jishushuju[3]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].bianwenrongji}</div>
-                        <div class="canshu">${fenye_compare_pro[1].bianwenrongji}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jishushuju[4]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].haodianliang}</div>
-                        <div class="canshu">${fenye_compare_pro[1].haodianliang}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jishushuju[5]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].zaoyinzhi}</div>
-                        <div class="canshu">${fenye_compare_pro[1].zaoyinzhi}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="table_compareBox">
-            <div class="o_g">
-                <span class="tit">${peizhi[0]}</span>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${peizhi[1]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].gewujia}</div>
-                        <div class="canshu">${fenye_compare_pro[1].gewujia}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${peizhi[2]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].guocaihe}</div>
-                        <div class="canshu">${fenye_compare_pro[1].guocaihe}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${peizhi[3]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].bianwenchouti}</div>
-                        <div class="canshu">${fenye_compare_pro[1].bianwenchouti}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${peizhi[4]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].pingzuo}</div>
-                        <div class="canshu">${fenye_compare_pro[1].pingzuo}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${peizhi[5]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].lengdongchouti}</div>
-                        <div class="canshu">${fenye_compare_pro[1].lengdongchouti}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${peizhi[6]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].zhediegewujia}</div>
-                        <div class="canshu">${fenye_compare_pro[1].zhediegewujia}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${peizhi[7]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].danhe}</div>
-                        <div class="canshu">${fenye_compare_pro[1].danhe}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${peizhi[8]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].hongjiujia}</div>
-                        <div class="canshu">${fenye_compare_pro[1].hongjiujia}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${peizhi[9]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].deng}</div>
-                        <div class="canshu">${fenye_compare_pro[1].deng}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${peizhi[10]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].zhibingji}</div>
-                        <div class="canshu">${fenye_compare_pro[1].zhibingji}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="table_compareBox">
-            <div class="o_g">
-                <span class="tit">${xingneng[0]}</span>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${xingneng[1]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].yasuojileixing}</div>
-                        <div class="canshu">${fenye_compare_pro[1].yasuojileixing}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${xingneng[2]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].zhilengfangshi}</div>
-                        <div class="canshu">${fenye_compare_pro[1].zhilengfangshi}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${xingneng[3]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].kongzhifangshi}</div>
-                        <div class="canshu">${fenye_compare_pro[1].kongzhifangshi}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${xingneng[4]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].sudonggongneng}</div>
-                        <div class="canshu">${fenye_compare_pro[1].sudonggongneng}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${xingneng[5]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].kaimenbaojing}</div>
-                        <div class="canshu">${fenye_compare_pro[1].kaimenbaojing}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${xingneng[6]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].tongsuogongneng}</div>
-                        <div class="canshu">${fenye_compare_pro[1].tongsuogongneng}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${xingneng[7]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].anjianfangshi}</div>
-                        <div class="canshu">${fenye_compare_pro[1].anjianfangshi}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="table_compareBox">
-            <div class="o_g">
-                <span class="tit">${tesegongneng[0]}</span>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${tesegongneng[1]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].tesegongneng}</div>
-                        <div class="canshu">${fenye_compare_pro[1].tesegongneng}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="table_compareBox">
-            <div class="o_g">
-                <span class="tit">${jichushuxing[0]}</span>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jichushuxing[1]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].jiawei}</div>
-                        <div class="canshu">${fenye_compare_pro[1].jiawei}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jichushuxing[2]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].chanpinxilie}</div>
-                        <div class="canshu">${fenye_compare_pro[1].chanpinxilie}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jichushuxing[3]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].renkou}</div>
-                        <div class="canshu">${fenye_compare_pro[1].renkou}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="o_g canshu_item">
-                <div class="table_compareBoxL">
-                    <span>${jichushuxing[4]}</span>
-                </div>
-                <div class="table_compareBoxR">
-                    <div class="o_g">
-                        <div class="canshu">${fenye_compare_pro[0].changjing}</div>
-                        <div class="canshu">${fenye_compare_pro[1].changjing}</div>
-                        <div class="canshu">&nbsp;</div>
-                        <div class="canshu">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-        </div>`;
-            $('.js_parameterBox').append(fenye_pro);
+            var table_compareBox = '';
+            var div = '</div>';
+            $.each(all_list, function(index, item) {
+                var canshu_item = '';
+                table_compareBox += `
+                <div class="table_compareBox">
+                     <div class="o_g">
+                         <span class="tit">${item[0]}</span>
+                     </div>`
+                item.forEach(function(item2, index2) {
+                    if (index2 > 0) {
+                        canshu_item += `  
+                    <div class="o_g canshu_item">
+                         <div class="table_compareBoxL">
+                             <span>${item2}</span>
+                         </div>
+                         <div class="table_compareBoxR">
+                             <div class="o_g">
+                                <div class="canshu">&nbsp;</div>
+                                <div class="canshu">&nbsp;</div>
+                                <div class="canshu">&nbsp;</div>
+                                <div class="canshu">&nbsp;</div>
+                             </div>
+                         </div>
+                     </div>`
+                    }
+                });
+                table_compareBox = table_compareBox + canshu_item + div;
+            });
+            $('.js_parameterBox').append(table_compareBox);
+        };
 
+        // 第二次动态生成数据来显示
+        function fenye_pro_data(fenye_compare_pro) {
+            $.each(fenye_compare_pro, function(index, item) {
+                var allcanshu_list = $('.canshu_item');
+                var arr = [];
+                $.each(item, function(index2, item2) {
+                    arr.push(item2);
+                });
+                arr.splice(0, 7);
+                $.each(allcanshu_list, function(index3, item3) {
+                    $(item3).find('.canshu').eq(index).text(arr[index3]);
+                });
+            });
+        };
 
-            // html方法会把无弄没有，所以用append来添加，无是默认的
-        }
 
         // products中含有数据，假装是ajax返回来的数据，将返回的数据放到页面上 end
 
@@ -601,13 +193,14 @@ $(document).ready(function() {
             var $this = $(this);
             $this.parents('.js_compareBoxL').siblings('.js_compareBoxR').find('.o_g').empty();
             compare_num = 0;
+            yiyou_kongyu = 0;
             $('.js_compare_pro_total').text(compare_num);
             kongyu();
             $this.parents('.js_compareListbox').siblings('.js_parameterBox').empty();
         });
         // 清空所有产品 end
 
-        // 高亮显示不同 start
+        // 高亮显示不同项 start
         var yes_high_light = false;
         $('.js_compareListbox').on('click', '.js_high_light_box', function() {
             var $this = $(this);
@@ -623,17 +216,17 @@ $(document).ready(function() {
                         arr.push($(item2).text());
                     });
                     if (compare_num == 2) {
-                        if (arr[0] == arr[1]) {
+                        if (arr[0] != arr[1]) {
                             $item.addClass('bc_248');
                             $item.find('.canshu').addClass('color_6500');
                         }
                     } else if (compare_num == 3) {
-                        if (arr[0] == arr[1] == arr[2]) {
+                        if (arr[0] != arr[1] || arr[0] != arr[2] || arr[1] != arr[2]) {
                             $item.addClass('bc_248');
                             $item.find('.canshu').addClass('color_6500');
                         }
                     } else if (compare_num == 4) {
-                        if (arr[0] == arr[1] == arr[2] == arr[3]) {
+                        if (arr[0] != arr[1] || arr[0] != arr[2] || arr[0] != arr[3] || arr[1] != arr[2] || arr[1] != arr[3] || arr[2] != arr[3]) {
                             $item.addClass('bc_248');
                             $item.find('.canshu').addClass('color_6500');
                         }
@@ -647,7 +240,45 @@ $(document).ready(function() {
             }
 
         });
-        // 高亮显示不同 end
+        // 高亮显示不同项 end
+
+        // 隐藏相同项 start
+        var yes_hide = false;
+        $('.js_compareListbox').on('click', '.js_hide_diff_box', function() {
+            var $this = $(this);
+            var hide_list = $('.canshu_item');
+            var arr = [];
+            if (!yes_hide) {
+                yes_hide = true;
+                $this.find('.js_hide_diff').addClass('xuanzhong');
+                $.each(hide_list, function(index3, item3) {
+                    var $item = $(item3);
+                    arr = [];
+                    $item.find('.canshu').each(function(index4, item4) {
+                        arr.push($(item4).text());
+                    });
+                    if (compare_num == 2) {
+                        if (arr[0] == arr[1]) {
+                            $item.addClass('displaynone');
+                        }
+                    } else if (compare_num == 3) {
+                        if (arr[0] == arr[1] == arr[2]) {
+                            $item.addClass('displaynone');
+                        }
+                    } else if (compare_num == 4) {
+                        if (arr[0] == arr[1] == arr[2] == arr[3]) {
+                            $item.addClass('displaynone');
+                        }
+                    }
+                });
+            } else {
+                yes_hide = false;
+                $this.find('.js_hide_diff').removeClass('xuanzhong');
+                hide_list.removeClass('displaynone');
+            }
+
+        });
+        // 隐藏相同项 end
 
         // 分页 casarte 对比部分功能 end
 

@@ -7,17 +7,27 @@ $(document).ready(function() {
     if (width > 1200) {
         //  主页casarte 对比部分功能 start
 
-        // 分类具体和遮罩 start
+        // 产品导航 hover start
+        $('.js_proListNavBox .list').on('mouseenter', 'li', function() {
+            var $this = $(this);
+            $this.find('img').attr('src', './images/hoverbigicon.png');
+        });
+        $('.js_proListNavBox .list').on('mouseleave', 'li', function() {
+            var $this = $(this);
+            $this.find('img').attr('src', './images/bingxiang.png');
+        });
+        // 产品导航 hover end
+
+
+        // 分类具体和遮罩 start 两个页面不一样，处理一下
         $('.js_proListNavBox').on('mouseenter', '.js_proClass', function() {
             var $this = $(this);
             $this.find('.list').removeClass('displaynone');
-            $this.parents('.js_proListNavBox').siblings('.zhezhaobox').find('.zhezhao').removeClass('displaynone');
         });
 
         $('.js_proListNavBox').on('mouseleave', '.js_proClass', function() {
             var $this = $(this);
             $this.find('.list').addClass('displaynone');
-            $this.parents('.js_proListNavBox').siblings('.zhezhaobox').find('.zhezhao').addClass('displaynone');
         });
         // 分类具体和遮罩 end
 

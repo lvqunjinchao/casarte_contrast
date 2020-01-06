@@ -24,6 +24,17 @@ $(document).ready(function() {
         });
         // 分类具体和遮罩 end
 
+        // 产品导航 hover start
+        $('.js_proListNavBox .list').on('mouseenter', 'li', function() {
+            var $this = $(this);
+            $this.find('img').attr('src', './images/hoverbigicon.png');
+        });
+        $('.js_proListNavBox .list').on('mouseleave', 'li', function() {
+            var $this = $(this);
+            $this.find('img').attr('src', './images/bingxiang.png');
+        });
+        // 产品导航 hover end
+
         // 获取cookie，动态改变个数 start
         var compare_num = $.cookie('compare_num');
         $('.js_compare_pro_total').text(compare_num);

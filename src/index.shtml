@@ -184,7 +184,7 @@
                     <div class="filterBox js_filterBox sd_filter"></div>
                 </div>
                 <!-- 商品列表导航 end -->
-                <div class="zhezhao"></div>
+                <div class="zhezhao displaynone"></div>
 
                 <!-- 产品列表 start -->
                 <div class="o_g pro_listbox js_prolistboxs">

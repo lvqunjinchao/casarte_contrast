@@ -128,10 +128,11 @@
                     </div>
                 </div>
                 <!-- 商品列表导航 end -->
+                <div class="zhezhao displaynone"></div>
+
 
                 <!-- 对比产品 start -->
-                <div class="compareListbox zhezhaobox js_compareListbox">
-                    <div class="zhezhao displaynone"></div>
+                <div class="compareListbox js_compareListbox">
                     <div class="compare o_g js_compareList">
                         <div class="cui_mainbox">
                             <div class="compareBox o_g">

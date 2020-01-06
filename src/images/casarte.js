@@ -23,11 +23,15 @@ $(document).ready(function() {
         $('.js_proListNavBox').on('mouseenter', '.js_proClass', function() {
             var $this = $(this);
             $this.find('.list').removeClass('displaynone');
+            var offsettop = $('.js_proListNavBox').offset().top;
+            $('.zhezhao').removeClass('displaynone');
+            $('.zhezhao').css('top', offsettop);
         });
 
         $('.js_proListNavBox').on('mouseleave', '.js_proClass', function() {
             var $this = $(this);
             $this.find('.list').addClass('displaynone');
+            $('.zhezhao').addClass('displaynone');
         });
         // 分类具体和遮罩 end
 

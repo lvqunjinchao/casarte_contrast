@@ -8,6 +8,21 @@ $(document).ready(function() {
 
         // 分页 casarte 对比部分功能 start
 
+        // 分类具体和遮罩 start 两个页面不一样，处理一下
+        $('.js_proListNavBox').on('mouseenter', '.js_proClass', function() {
+            var $this = $(this);
+            $this.find('.list').removeClass('displaynone');
+            var offsettop = $('.js_proListNavBox').offset().top;
+            $('.zhezhao').removeClass('displaynone');
+            $('.zhezhao').css('top', offsettop);
+        });
+
+        $('.js_proListNavBox').on('mouseleave', '.js_proClass', function() {
+            var $this = $(this);
+            $this.find('.list').addClass('displaynone');
+            $('.zhezhao').addClass('displaynone');
+        });
+        // 分类具体和遮罩 end
 
         // 获取cookie，动态改变个数 start
         var compare_num = $.cookie('compare_num');
